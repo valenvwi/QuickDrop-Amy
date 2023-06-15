@@ -1,0 +1,51 @@
+/// Page container ///
+
+.container {
+  text-align: center;
+  align-items: center;
+  padding: 16px;
+  background-color: white;
+  margin: 0px;
+}
+
+///// Homepage container with grid and ratio 3:1 ///////
+
+.background-container {
+  display:grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 3fr 1fr;
+  height: 100vh;
+  padding: 0px;
+  margin: 0px;
+  background-color: white;
+  text-align: center;
+}
+
+
+//// flexbox ////////
+.d-flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+///// container one /////
+
+
+.one {
+
+  // background: linear-gradient(180deg, #FFF7E9 0%, #FF731D 100%);
+  width: 100%;
+  display:flex;
+  justify-content: center;
+  padding: 50px;
+  margin-bottom: 40px;
+}
+
+//// banner ///
+
+.banner {
+  text-align: top;
+  margin: 50px;
+  // position: relative;
+}

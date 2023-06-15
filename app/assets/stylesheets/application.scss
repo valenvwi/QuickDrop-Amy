@@ -1,0 +1,75 @@
+// Graphical variables
+@import "config/fonts";
+@import "config/colors";
+@import "config/bootstrap_variables";
+
+// External libraries
+@import "bootstrap/scss/bootstrap";
+@import "font-awesome";
+
+// Your CSS partials
+@import "components/index";
+@import "pages/index";
+@import "pages/edit";
+
+
+// Font style
+* {
+font-family: 'Quicksand', sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1 {
+  font-weight: 700;
+  font-size: 48px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+h2 {
+  font-weight: 500;
+  font-size: 24px;
+}
+
+h3 {
+  font-weight: 300;
+  font-size: 18px;
+}
+
+h5 {
+  margin-top: 6px;
+  font-size: 16px;
+  font-weight: lighter;
+}
+
+p {
+  font-weight: 500;
+  font-size: 16px;
+  // text-align:justify;
+}
+
+/// font size form labels ///
+
+.form-label {
+  font-size: 16px;
+}
+
+.popover{
+  white-space: pre-line;
+}
+
+.wrapper {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+
+body {
+  padding: 0px;
+  margin: 0px;
+  min-height: 100vh;
+}

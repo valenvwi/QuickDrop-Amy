@@ -1,0 +1,36 @@
+
+<div class="background-container">
+  <div class= "one" id="img-my-orders">
+  </div>
+    <%# <div class="banner">
+    </div>
+  </div>
+  <div class="container">
+    <%# <div class="page-icon">
+      <div class="circle">
+        <div class="circle-icon">
+          <i class="fa-solid fa-circle-user" style="color: #ff731d;"></i>
+        </div>
+      </div>
+    </div> %>
+    <h1>My Orders</h1>
+    <% @orders.each do |order| %>
+      <div class="card mb-3">
+        <div class="card-header"><%= order.status %></div>
+          <div class="card-body text-dark">
+            <h5 class="card-title">Date: <%= order.pickup_at.strftime("%Y-%m-%d") %></h5>
+            <h5 class="card-title">Time: <%= order.pickup_at.strftime("%H:%M") %></h5>
+            <%# <p class="card-text">Price: <%= order.price %>
+          </div>
+          <button type="button" class="btn btn-blue"
+              data-controller="popover"
+              data-bs-toggle="popover"
+              data-bs-placement="bottom"
+              data-bs-content="Pickup Address: <%= order.pickup_address.titleize %>.
+              Drop-off Address: <%= order.dropoff_address.titleize %>.">
+              More details
+          </button>
+      </div>
+    <% end %>
+  </div>
+</div>

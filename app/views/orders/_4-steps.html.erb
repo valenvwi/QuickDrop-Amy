@@ -1,0 +1,22 @@
+ <div class="steps">
+    <div class="step">
+      <div class="step-circle <%= 'step-active' if params[:controller] == 'orders' && params[:action] == 'new' %>">1</div>
+        <div class="step-text">Address</div>
+      </div>
+      <div class="step-line <%= 'step-line active' if params[:controller] == 'orders' && params[:action] == 'edit' || params[:action] == 'show' || params[:action] == 'specialshow' || params[:action] == 'update'%>"></div>
+      <div class="step">
+        <div class="step-circle <%= 'step-active' if params[:controller] == 'orders' && params[:action] == 'edit' || params[:action] == 'update'%>">2</div>
+        <div class="step-text <%= 'step-text active' if params[:controller] == 'orders' && params[:action] == 'edit' %>">Additional info</div>
+      </div>
+      <div class="step-line <%= 'step-line active' if params[:controller] == 'orders' && params[:action] == 'show' || params[:action] == 'specialshow'%>"></div>
+      <div class="step">
+        <div class="step-circle <%= 'step-active' if params[:controller] == 'orders' && params[:action] == 'show' %>">3</div>
+        <div class="step-text <%= 'step-text active' if params[:controller] == 'orders' && params[:action] == 'show' %>">Summary</div>
+      </div>
+      <div class="step-line <%= 'step-line active' if params[:controller] == 'orders' && params[:action] == 'specialshow'  %>"></div>
+      <div class="step">
+        <div class="step-circle <%= 'step-active' if params[:controller] == 'orders' && params[:action] == 'specialshow' %>">4</div>
+        <div class="step-text <%= 'step-text active' if params[:controller] == 'orders' && params[:action] == 'specialshow' %>">Submitted</div>
+      </div>
+    </div>
+  </div>

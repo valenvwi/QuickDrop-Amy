@@ -1,0 +1,17 @@
+<div class= "bg-light">
+  Pick-up information:
+  <li><%= @order.pickup_address.titleize%></li>
+  <li><%= @order.pickup_at %></li>
+  <li><%= @order.pickup_additional_detail %></li>
+  <li><%= @order.pickup_name %></li>
+  <li><%= @order.pickup_contact_phone %></li>
+</div>
+
+<div class="bg-light">
+  Drop-off information:
+  <li><%= @order.dropoff_address.titleize%></li>
+  <li><%= @order.dropoff_at %></li>
+  <li><%= @order.dropoff_additional_detail %></li>
+  <li><%= @order.dropoff_name %></li>
+  <li><%= @order.dropoff_contact_phone %></li>
+</div>

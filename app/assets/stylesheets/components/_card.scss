@@ -1,0 +1,35 @@
+//// white card /////
+.card {
+  padding: 12px;
+  margin: 20px;
+}
+
+/// card light orange ////
+
+.card-light-orange {
+  background-color: #FFF7E9;
+  border: 1px solid #ff731d;
+  border-radius: 15px;
+  padding: 12px;
+  margin: 20px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.25);
+
+}
+
+//// card flexbox ////
+.card-flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+//// card with white background for summary /////
+.card-summary {
+  background-color: white;
+  border: 1px solid lightgrey;
+  margin-left: 50px;
+  padding: 6px;
+  text-align: left;
+  border-radius: 15px;
+}

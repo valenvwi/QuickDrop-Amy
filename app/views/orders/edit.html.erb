@@ -1,0 +1,42 @@
+<div class="container">
+  <%= render '4-steps' %>
+  <h1>Details</h1>
+</div>
+<div class="card-light-orange">
+  <h2> <i class="fa-solid fa-location-dot fa-2xl pin" style="color: #ff731d;"></i>   Pick-up information</h2>
+  <%= simple_form_for@order, html: { "data-turbo-frame": false } do |f| %>
+    <%# <%= f.error_notification %>
+    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+    <div class="form-inputs">
+      <% if @order.pickup_name.present? && @order.pickup_contact_phone.present? && @order.item_size.present? && @order.dropoff_name.present? && @order.dropoff_contact_phone.present? %>
+        <%= f.input :pickup_address, :label => "Pick-up address"%>
+        <%= f.input :pickup_at, :label => "Pick-up time", as: :time, html5: true, input_html: { min: Time.now.strftime('%Y-%m-%dT%H:%M') }%>
+      <% end %>
+      <%= f.input :pickup_name, :label => "Name of sender"%>
+      <%= f.input :pickup_contact_phone, :label => "Phone No. of sender"%>
+      <%= f.input :item_size,
+              as: :radio_buttons,
+              collection_wrapper_tag: 'div',
+              collection_wrapper_class: 'category-wrapper',
+              item_wrapper_class: 'category-item',
+              input_html: {class: 'category-selector'},
+              collection: Order::SIZES %>
+      <p>Anything we need to know when we pick up the item? (optional) </p>
+      <%= f.input :pickup_additional_detail, :label => "Additional information" %>
+    </div>
+  </div>
+  <div class="card-light-orange">
+    <h2><i class="fa-solid fa-location-dot fa-2xl pin" style="color: #ff731d;" ></i>   Drop-off information</h2>
+    <div class="form-inputs">
+      <% if @order.pickup_name.present? && @order.pickup_contact_phone.present? && @order.item_size.present? && @order.dropoff_name.present? && @order.dropoff_contact_phone.present? %>
+        <%= f.input :dropoff_address, :label => "Drop-off address"%>
+      <% end %>
+      <%= f.input :dropoff_name, :label => "Name of recipient" %>
+      <%= f.input :dropoff_contact_phone, :label => "Phone no. of recipient" %>
+      <p>Anything we need to know when we pick up the item? (optional) </p>
+      <%= f.input :dropoff_additional_detail, :label => "Additional information" %>
+      <%= f.button :submit, 'Next', class: "btn btn-blue"%>
+    </div>
+  <% end %>
+</div>
+</div>
