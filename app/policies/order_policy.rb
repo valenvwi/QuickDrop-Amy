@@ -24,6 +24,18 @@ class OrderPolicy < ApplicationPolicy
     true
   end
 
+  def drivershow?
+    true
+  end
+
+  def driveracceptedorders?
+    true
+  end
+
+  def ordermarkascompleted?
+    true
+  end
+
   def show?
     true
   end

@@ -1,0 +1,28 @@
+<div class="background-container">
+  <div class= "one" id="img-driveracceptedorders">
+  </div>
+    <h1>Ongoing: <br>
+    <%= pluralize @orders.count, "order" %></h1>
+    <%# <div class="mx-5">
+      <%= button_to "Show on going orders (#{@orders.where(status: "Accepted").count})", driverindex_path, class:"btn btn-blue", method: :get %>
+    </div>
+     <% @orders.each do |order| %>
+      <%= link_to order_path(order) do %>
+        <div class="card mb-3">
+          <div class="card-header"><%= order.status %></div>
+            <div class="card-body text-dark">
+              <h5 class="card-title">Date: <%= order.pickup_at.strftime("%Y-%m-%d") %></h5>
+              <h5 class="card-title">Pick-up time: <%= order.pickup_at.strftime("%H:%M") %></h5>
+              <h5 class="card-title">Pick-up address: <%= order.pickup_address.titleize %></h5>
+              <h5 class="card-title">Drop-off address: <%= order.dropoff_address.titleize %></h5>
+              <%# <p class="card-text">Price: <%= order.price %>
+            </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+    <div class="mx-5 my-2">
+    <%= button_to "Show all completed orders", drivershow_path, class:"btn btn-blue", method: :get %>
+    <%= button_to "Get new job", driverindex_path, class:"btn btn-blue", method: :get %>
+  </div>
+</div>

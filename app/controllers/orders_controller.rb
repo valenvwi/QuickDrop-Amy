@@ -1,14 +1,12 @@
 class OrdersController < ApplicationController
-
   before_action :set_order, only: %i[ show specialshow edit update ]
-  before_action :set_submitted_order, only: %i[ accept markascompleted cancel]
+  before_action :set_submitted_order, only: %i[ accept markascompleted cancel ordermarkascompleted]
 
   def index #customer
-    # @order.user = current_user
     @orders = policy_scope(Order).where(customer_id: current_user.id).order(created_at: :desc)
   end
 
-  def driverindex
+  def driverindex #driver
     if current_user.driver?
       @orders = policy_scope(Order).where(status: "Pending").order(pickup_at: :asc)
     else
@@ -35,6 +33,13 @@ class OrdersController < ApplicationController
     @markers = [@marker1, @marker2]
   end
 
+  def drivershow
+    if current_user.driver?
+      @orders = policy_scope(Order).where(driver_id: current_user).order(pickup_at: :desc)
+    else
+      redirect_to orders_path, alert: "No"
+    end
+  end
 
   def specialshow
   end
@@ -81,21 +86,29 @@ class OrdersController < ApplicationController
     @order.driver_id = current_user.id
     @order.save!
     redirect_to order_path(@order)
-    # redirect_to orders_path, notice: "order accepted!"
   end
 
   def markascompleted
     @order.update(status: "Completed")
     @order.save!
-    redirect_to driverindex_path
-
-    # redirect_to orders_path, notice: "order completed!"
+    redirect_to order_ordermarkascompleted_path(@order)
   end
 
   def cancel
     @order.update(status: "Cancelled")
     @order.save!
     redirect_to orders_path
+  end
+
+  def driveracceptedorders
+    if current_user.driver?
+      @orders = policy_scope(Order).where(driver_id: current_user, status: "Accepted").order(pickup_at: :desc)
+    else
+      redirect_to orders_path, alert: "No"
+    end
+  end
+
+  def ordermarkascompleted
   end
 
   private

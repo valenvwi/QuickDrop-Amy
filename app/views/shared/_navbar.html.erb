@@ -13,6 +13,16 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <%# Drop Down %>
+          <% if current_user.driver? %>
+            <li class="nav-item dropdown">
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <%= link_to "Get new job", driverindex_path, class: "dropdown-item" %>
+              <%= link_to "View pending job", driveracceptedorders_path, class: "dropdown-item" %>
+              <%= link_to "All Completed job", drivershow_path, class: "dropdown-item" %>
+              <%= button_to"Log Out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+            </div>
+          </li>
+          <% else %>
           <li class="nav-item dropdown">
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "New Order", root_path, class: "dropdown-item" %>
@@ -20,6 +30,7 @@
               <%= button_to"Log Out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             </div>
           </li>
+          <% end %>
         <% else %>
           <li class="nav-item">
             <%= link_to "Login", new_user_session_path, class: "nav-link" %>

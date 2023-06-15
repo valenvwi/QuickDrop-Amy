@@ -1,0 +1,27 @@
+<div class="background-container">
+  <div class= "one" id="img-my-orders">
+  </div>
+  <h1>You have completed <%= @orders.where(status: "Completed").count %> orders!
+  <div class="mx-5">
+    <% if @orders.where(status: "Accepted").count > 0 %>
+      <%= button_to "Show ongoing orders (#{@orders.where(status: "Accepted").count})", driveracceptedorders_path, class:"btn btn-blue", method: :get %>
+    <% end %>
+  </div>
+</div>
+<% @orders.where(status: "Completed").each do |order| %>
+  <div class="card mb-3">
+    <div class="card-header">Earn: <%= (order.price * 0.5).ceil %> CHF</div>
+      <div class="card-body text-dark">
+        <h5 class="card-title">Date: <%= order.pickup_at.strftime("%Y-%m-%d") %></h5>
+        <h5 class="card-title">Start Time: <%= order.pickup_at.strftime("%H:%M") %></h5>
+        <h5 class="card-title">Duration:
+          <% if order.trip_duration.in_hours.floor < 1 %>
+            <%= pluralize order.trip_duration.in_minutes.ceil, "Minute" %>
+          <% else %>
+          <%= pluralize order.trip_duration.in_hours.floor, "Hour" %> <%= pluralize (order.trip_duration.in_minutes.ceil - order.trip_duration.in_hours.floor * 60), "Minute" %></h3>
+          <% end %>
+        </h5>
+      </div>
+  </div>
+  <% end %>
+  </div>

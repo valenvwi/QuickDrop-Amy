@@ -1,0 +1,14 @@
+<div class="background-container">
+  <div class= "one" id="img-ordermarkascompleted">
+  </div>
+  <div class="text-center">
+    <h1>Good job!</h1>
+    <h2> You just earned <%= (@order.price * 0.5).floor %> CHF </h2>
+  </div>
+    <div class="mx-5">
+      <%= button_to "Show ongoing orders", driveracceptedorders_path, class:"btn btn-blue", method: :get %>
+      <%= button_to "Show all completed orders", drivershow_path, class:"btn btn-blue", method: :get %>
+      <%= button_to "Get new jobs", driverindex_path, class:"btn btn-blue", method: :get %>
+    </div>
+  </div>
+</div>
