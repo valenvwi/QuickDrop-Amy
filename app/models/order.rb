@@ -5,7 +5,7 @@ class Order < ApplicationRecord
   validates :pickup_address, presence: true
   validates :pickup_at, presence: true
   validates :dropoff_address, presence: true
-
+  validate :pickup_at_time, on: :create
   validate :check_address
 
   geocoded_by :pickup_address, latitude: :pickup_latitude, longitude: :pickup_longitude
@@ -25,8 +25,12 @@ class Order < ApplicationRecord
 
   SIZES = ['Small', 'Medium', 'Large']
 
+  def pickup_at_time
+    errors.add(:pickup_at, "must be at least 15 minutes from now") if pickup_at.present? && pickup_at <= Time.now + 15.minutes
+  end
+
   def check_address
-    errors.add(:dropoff_address, "can't be the same as pick up address") if pickup_address == dropoff_address
+    errors.add(:dropoff_address, "can't be the same as pick up address") if pickup_address.downcase == dropoff_address.downcase
   end
 
   def calculate_price

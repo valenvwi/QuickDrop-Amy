@@ -2,7 +2,7 @@
   <div class= "one" id="img-driveracceptedorders">
   </div>
     <h1>Ongoing: <br>
-    <%= pluralize @orders.count, "order" %></h1>
+    <%= pluralize @orders.count, "job" %></h1>
     <%# <div class="mx-5">
       <%= button_to "Show on going orders (#{@orders.where(status: "Accepted").count})", driverindex_path, class:"btn btn-blue", method: :get %>
     </div>
@@ -22,7 +22,7 @@
     <% end %>
   </div>
     <div class="mx-5 my-2">
-    <%= button_to "Show all completed orders", drivershow_path, class:"btn btn-blue", method: :get %>
+    <%= button_to "Show all completed jobs", drivershow_path, class:"btn btn-blue", method: :get %>
     <%= button_to "Get new job", driverindex_path, class:"btn btn-blue", method: :get %>
   </div>
 </div>

@@ -64,10 +64,8 @@
     </div>
     <% if @order.driver_id != current_user.id %>
       <div class="text-center mt-2 mb-1">
-        <%= link_to specialshow_order_path(@order) do %>
-          <input class="btn btn-blue" type="submit" value="Submit order:    <%= @order.price %> CHF">
+        <%= button_to "Submit order:      #{@order.price} CHF", order_submit_path(@order), class:"btn btn-blue", method: :patch %>
           <%# <input class="btn btn-blue" type="submit" value="Request order"> %>
-        <% end %>
       </div>
     <% else %>
       <div class="mt-2 m-auto">

@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     patch :accept
     patch :markascompleted
     patch :cancel
+    patch :submit
   end
   # Defines the root path route ("/")
   # root "articles#index"

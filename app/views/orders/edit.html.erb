@@ -14,6 +14,7 @@
       <% end %>
       <%= f.input :pickup_name, :label => "Name of sender"%>
       <%= f.input :pickup_contact_phone, :label => "Phone No. of sender"%>
+
       <%= f.input :item_size,
               as: :radio_buttons,
               collection_wrapper_tag: 'div',
@@ -21,8 +22,7 @@
               item_wrapper_class: 'category-item',
               input_html: {class: 'category-selector'},
               collection: Order::SIZES %>
-      <p>Anything we need to know when we pick up the item? (optional) </p>
-      <%= f.input :pickup_additional_detail, :label => "Additional information" %>
+      <%= f.input :pickup_additional_detail, :label => "Anything we need to know when we pick up the item? (optional)" %>
     </div>
   </div>
   <div class="card-light-orange">
@@ -33,8 +33,7 @@
       <% end %>
       <%= f.input :dropoff_name, :label => "Name of recipient" %>
       <%= f.input :dropoff_contact_phone, :label => "Phone no. of recipient" %>
-      <p>Anything we need to know when we pick up the item? (optional) </p>
-      <%= f.input :dropoff_additional_detail, :label => "Additional information" %>
+      <%= f.input :dropoff_additional_detail, :label => "Anything we need to know when we pick up the item? (optional)" %>
       <%= f.button :submit, 'Next', class: "btn btn-blue"%>
     </div>
   <% end %>

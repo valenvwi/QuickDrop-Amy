@@ -1,10 +1,10 @@
 <div class="background-container">
   <div class= "one" id="img-my-orders">
   </div>
-  <h1>You have completed <%= @orders.where(status: "Completed").count %> orders!
+  <h1>You have completed <%= @orders.where(status: "Completed").count %> jobs!
   <div class="mx-5">
     <% if @orders.where(status: "Accepted").count > 0 %>
-      <%= button_to "Show ongoing orders (#{@orders.where(status: "Accepted").count})", driveracceptedorders_path, class:"btn btn-blue", method: :get %>
+      <%= button_to "Show ongoing jobs (#{@orders.where(status: "Accepted").count})", driveracceptedorders_path, class:"btn btn-blue", method: :get %>
     <% end %>
   </div>
 </div>

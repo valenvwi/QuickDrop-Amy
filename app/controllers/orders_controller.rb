@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: %i[ show specialshow edit update ]
-  before_action :set_submitted_order, only: %i[ accept markascompleted cancel ordermarkascompleted]
+  before_action :set_submitted_order, only: %i[ submit accept markascompleted cancel ordermarkascompleted]
 
   def index #customer
     @orders = policy_scope(Order).where(customer_id: current_user.id).order(created_at: :desc)
@@ -8,7 +8,7 @@ class OrdersController < ApplicationController
 
   def driverindex #driver
     if current_user.driver?
-      @orders = policy_scope(Order).where(status: "Pending").order(pickup_at: :asc)
+      @orders = policy_scope(Order).where(status: "Submitted").order(pickup_at: :asc)
     else
       redirect_to orders_path, alert: "No"
     end
@@ -79,6 +79,12 @@ class OrdersController < ApplicationController
       end
     end
 
+  end
+
+  def submit
+    @order.update(status: "Submitted")
+    @order.save!
+    redirect_to specialshow_order_path(@order)
   end
 
   def accept

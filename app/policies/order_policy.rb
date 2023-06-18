@@ -48,6 +48,10 @@ class OrderPolicy < ApplicationPolicy
     true
   end
 
+  def submit?
+    true
+  end
+
   def accept?
     true
   end

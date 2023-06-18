@@ -1,4 +1,4 @@
-<div class="background-container">
+<div class="container">
   <%= render '4-steps' %>
   <div class= "one" id="img-specialshow">
     <%# <div class="banner">
@@ -40,7 +40,7 @@
             </div>
           <%end%>
           <div class="d-grid">
-            <% if @order.status == "Pending"  %>
+            <% if @order.status == "Submitted"  %>
             <%= button_to "Cancel Order", order_cancel_path(@order), class:"btn btn-blue", method: :patch %>
             <% end %>
           </div>
