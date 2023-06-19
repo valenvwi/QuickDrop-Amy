@@ -22,7 +22,15 @@
               item_wrapper_class: 'category-item',
               input_html: {class: 'category-selector'},
               collection: Order::SIZES %>
-        <p>Size guide <i class="fa-solid fa-circle-info" style="color: #ff731d;"></i></p>
+      <div data-controller="sizeguide" data-action="click->sizeguide#appear">
+        <p >Size guide <i class="fa-solid fa-circle-info" style="color: #ff731d;" data-sizeguide-target="button"></i></p>
+        <div id="card-sm" class="hidden" data-sizeguide-target="list" >
+          <ul class="list-unstyled m-0">Length x Width x Height (cm)
+            <li>Small: 20 x 30 x 10</li>
+            <li>Medium: 30 x 50 x 20</li>
+            <li>Large: 50 x 75 x 50</li></ul>
+        </div>
+      </div>
       <%= f.input :pickup_additional_detail, :label => "Anything we need to know when we pick up the item? (optional)" %>
     </div>
   </div>

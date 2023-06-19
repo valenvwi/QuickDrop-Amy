@@ -12,3 +12,6 @@ application.register("map", MapController)
 
 import PopoverController from "./popover_controller"
 application.register("popover", PopoverController)
+
+import SizeguideController from "./sizeguide_controller"
+application.register("sizeguide", SizeguideController)

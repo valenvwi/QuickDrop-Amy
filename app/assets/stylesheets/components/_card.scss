@@ -1,10 +1,23 @@
-//// white card /////
+// white card /////
 .card {
   padding: 12px;
   margin: 20px;
 }
 
-/// card light orange ////
+#card-sm {
+  padding: 10px;
+  background-color: #f3c29263;
+  border: 1px dotted #ff731d;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 12px;
+  margin: 10px;
+}
+
+.hidden {
+  display:none;
+}
+// card light orange ////
 
 .card-light-orange {
   background-color: #FFF7E9;
@@ -13,10 +26,8 @@
   padding: 12px;
   margin: 20px;
   box-shadow: 0 0 5px rgba(0,0,0,0.25);
-
 }
 
-//// card flexbox ////
 .card-flex {
   display: flex;
   flex-direction: row;
@@ -24,7 +35,6 @@
   align-items: center;
 }
 
-//// card with white background for summary /////
 .card-summary {
   background-color: white;
   border: 1px solid lightgrey;
