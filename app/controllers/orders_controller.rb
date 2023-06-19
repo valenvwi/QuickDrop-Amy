@@ -14,12 +14,12 @@ class OrdersController < ApplicationController
     end
   end
 
-  def new
+  def new #customer
     @order = Order.new
     authorize @order
   end
 
-  def show
+  def show #customer
     @marker1 =
       {
         lat: @order.pickup_latitude,
@@ -33,7 +33,7 @@ class OrdersController < ApplicationController
     @markers = [@marker1, @marker2]
   end
 
-  def drivershow
+  def drivershow #driver
     if current_user.driver?
       @orders = policy_scope(Order).where(driver_id: current_user).order(pickup_at: :desc)
     else
@@ -41,11 +41,11 @@ class OrdersController < ApplicationController
     end
   end
 
-  def specialshow
+  def specialshow #customer
   end
 
 
-  def create
+  def create #customer
     @order = Order.new(order_params)
     @order.customer_id = current_user.id
     authorize @order
@@ -60,10 +60,10 @@ class OrdersController < ApplicationController
     end
   end
 
-  def edit
+  def edit #customer
   end
 
-  def update
+  def update #customer
     respond_to do |format|
       if @order.update(order_params)
         @order.calculate_distance
@@ -81,32 +81,32 @@ class OrdersController < ApplicationController
 
   end
 
-  def submit
+  def submit #customer
     @order.update(status: "Submitted")
     @order.save!
     redirect_to specialshow_order_path(@order)
   end
 
-  def accept
+  def accept #driver
     @order.update(status: "Accepted")
     @order.driver_id = current_user.id
     @order.save!
     redirect_to order_path(@order)
   end
 
-  def markascompleted
+  def markascompleted #driver
     @order.update(status: "Completed")
     @order.save!
     redirect_to order_ordermarkascompleted_path(@order)
   end
 
-  def cancel
+  def cancel #customer
     @order.update(status: "Cancelled")
     @order.save!
     redirect_to orders_path
   end
 
-  def driveracceptedorders
+  def driveracceptedorders #driver
     if current_user.driver?
       @orders = policy_scope(Order).where(driver_id: current_user, status: "Accepted").order(pickup_at: :desc)
     else
@@ -114,7 +114,7 @@ class OrdersController < ApplicationController
     end
   end
 
-  def ordermarkascompleted
+  def ordermarkascompleted #driver
   end
 
   private
