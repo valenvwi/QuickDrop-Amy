@@ -5,7 +5,7 @@ class Order < ApplicationRecord
   validates :pickup_address, presence: true
   validates :pickup_at, presence: true
   validates :dropoff_address, presence: true
-  validate :pickup_at_time, on: :create
+  validate :pickup_at_time, on: %i[create update]
   validate :check_address
 
   geocoded_by :pickup_address, latitude: :pickup_latitude, longitude: :pickup_longitude
@@ -17,8 +17,8 @@ class Order < ApplicationRecord
   validates :pickup_name, presence: true, on: :update
   validates :dropoff_name, presence: true, on: :update
   validates :item_size, presence: true, on: :update
-  validates :dropoff_contact_phone, presence: true, on: :update
-  validates :pickup_contact_phone, presence: true, on: :update
+  validates :dropoff_contact_phone, presence: true, numericality: true, length: { minimum: 10, maximum: 15 }, on: :update
+  validates :pickup_contact_phone, presence: true, numericality: true, length: { minimum: 10, maximum: 15 }, on: :update
 
   before_create :calculate_distance, :calculate_price, :trip_duration, :dropoff_time
 
