@@ -8,7 +8,7 @@ class OrdersController < ApplicationController
 
   def driverindex #driver
     if current_user.driver?
-      @orders = policy_scope(Order).where(status: "Submitted").order(pickup_at: :asc)
+      @orders = policy_scope(Order).where("status = ? AND pickup_at >= ?", "Submitted", Time.now + 15.minutes).order(pickup_at: :asc)
     else
       redirect_to orders_path, alert: "No"
     end

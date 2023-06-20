@@ -11,21 +11,19 @@
   <% if @orders.count > 0%>
     <h1 class="m-3">Accept new job</h1>
     <% @orders.each do |order| %>
-      <% if order.pickup_at >= Time.now + 15.minutes %>
-        <div class="card mb-3">
-          <div class="card-body text-dark">
-            <h5 class="card-title">Date: <%= order.pickup_at.strftime("%Y-%m-%d") %></h5>
-            <h5 class="card-title">Pick-up time: <%= order.pickup_at.strftime("%H:%M") %></h5>
-            <h5 class="card-title">Pickup Address: <%= order.pickup_address.titleize %></h5>
-            <h5 class="card-title">Drop-off Address: <%= order.dropoff_address.titleize %></h5>
-            <div >
-              <%= button_to "Accept", order_accept_path(order), class: "btn btn-blue btn-accept",  method: :patch %>
-            </div>
+      <div class="card mb-3">
+        <div class="card-body text-dark">
+          <h5 class="card-title">Date: <%= order.pickup_at.strftime("%Y-%m-%d") %></h5>
+          <h5 class="card-title">Pick-up time: <%= order.pickup_at.strftime("%H:%M") %></h5>
+          <h5 class="card-title">Pickup Address: <%= order.pickup_address.titleize %></h5>
+          <h5 class="card-title">Drop-off Address: <%= order.dropoff_address.titleize %></h5>
+          <div >
+            <%= button_to "Accept", order_accept_path(order), class: "btn btn-blue btn-accept",  method: :patch %>
           </div>
         </div>
-      <% end %>
+      </div>
     <% end %>
   <% else %>
-    <h1 class="mx- my-3">No jobs available</h1>
+    <h1 class="m-3">No jobs available</h1>
   <% end %>
 </div>

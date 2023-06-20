@@ -9,7 +9,7 @@
      <% @orders.each do |order| %>
       <%= link_to order_path(order) do %>
         <div class="card mb-3">
-          <div class="card-header"><%= order.status %></div>
+          <div class="card-header btn-blue">Check details</div>
             <div class="card-body text-dark">
               <h5 class="card-title">Date: <%= order.pickup_at.strftime("%Y-%m-%d") %></h5>
               <h5 class="card-title">Pick-up time: <%= order.pickup_at.strftime("%H:%M") %></h5>
