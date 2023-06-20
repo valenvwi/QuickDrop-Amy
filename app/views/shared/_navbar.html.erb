@@ -1,7 +1,17 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
     <div class="navbar-brand">
-      <%= image_tag "Black logo.png" %>
+      <% if user_signed_in? %>
+        <% if current_user.driver? %>
+          <a class="navbar-brand" href="/driverindex.html">
+            <%= image_tag "Black logo.png" %>
+          </a>
+        <% else %>
+          <a class="navbar-brand" href="/orders/new.html">
+            <%= image_tag "Black logo.png" %>
+          </a>
+        <% end %>
+      <% end %>
     </div>
     <%# Drop Down %>
     <a class="nav-link" id="navbarDropdown" href="#"  data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -14,9 +24,9 @@
           <% if current_user.driver? %>
             <li class="nav-item dropdown">
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Accpet new job", driverindex_path, class: "dropdown-item" %>
-              <%= link_to "View ongoing job", driveracceptedorders_path, class: "dropdown-item" %>
-              <%= link_to "All Completed job", drivershow_path, class: "dropdown-item" %>
+              <%= link_to "New jobs", driverindex_path, class: "dropdown-item" %>
+              <%= link_to "Ongoing jobs", driveracceptedorders_path, class: "dropdown-item" %>
+              <%= link_to "Completed jobs", drivershow_path, class: "dropdown-item" %>
               <%= button_to"Log Out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             </div>
           </li>
@@ -24,7 +34,7 @@
           <li class="nav-item dropdown">
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "New Order", root_path, class: "dropdown-item" %>
-              <%= link_to "View My Orders", orders_path(@orders), class: "dropdown-item" %>
+              <%= link_to "My Orders", orders_path(@orders), class: "dropdown-item" %>
               <%= button_to"Log Out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             </div>
           </li>

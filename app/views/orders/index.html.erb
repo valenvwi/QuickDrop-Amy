@@ -15,23 +15,20 @@
     </div> %>
     <h1>My Orders</h1>
     <% @orders.each do |order| %>
-      <%= link_to specialshow_order_path(order) do %>
-        <div class="card mb-3">
-          <div class="card-header"><%= order.status %></div>
-            <div class="card-body text-dark">
-              <h5 class="card-title">Date: <%= order.pickup_at.strftime("%Y-%m-%d") %></h5>
-              <h5 class="card-title">Time: <%= order.pickup_at.strftime("%H:%M") %></h5>
-              <%# <p class="card-text">Price: <%= order.price %>
-            </div>
-            <%# <button type="button" class="btn btn-blue"
-                data-controller="popover"
-                data-bs-toggle="popover"
-                data-bs-placement="bottom"
-                data-bs-content="Pickup Address: <%= order.pickup_address.titleize %>
-                <%# Drop-off Address: <%= order.dropoff_address.titleize %>
-                <%# More details
-            </button> %>
-        </div>
+      <% if order.status != "Pending" %>
+        <%= link_to specialshow_order_path(order) do %>
+          <div class="card mb-3">
+            <% if order.status == "Submitted" && (order.pickup_at <= Time.now + 15.minutes) %>
+              <div class="card-header btn-blue">Cancelled</div>
+            <% else %>
+              <div class="card-header btn-blue"><%= order.status %></div>
+            <% end %>
+              <div class="card-body text-dark">
+                <h5 class="card-title">Date: <%= order.pickup_at.strftime("%Y-%m-%d") %></h5>
+                <h5 class="card-title">Time: <%= order.pickup_at.strftime("%H:%M") %></h5>
+              </div>
+          </div>
+        <% end %>
       <% end %>
     <% end %>
   </div>
