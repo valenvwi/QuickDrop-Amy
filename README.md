@@ -25,3 +25,41 @@
 ###### Main language: Ruby, HTML, CSS, Javascript
 ###### Main Gem: Devise, Pundit, Stimulus, Geocoder, Simple_form
 ###### API: Mapbox
+
+## Some screenshots of the app
+#### User perspective
+
+##### Log in and create an order
+
+<img src="https://github.com/valenvwi/QuickDrop-Amy/assets/119674688/9010f0aa-9599-4ab3-8220-794e425fb5d7" height=500>
+
+<img src="https://github.com/valenvwi/QuickDrop-Amy/assets/119674688/4b036142-576a-4f9d-a766-f7a8088ca229" height=500>
+
+<img src="https://github.com/valenvwi/QuickDrop-Amy/assets/119674688/b7202f72-31ad-479c-aa4b-84dfba4112ff" height=500>
+
+<img src="https://github.com/valenvwi/QuickDrop-Amy/assets/119674688/88c857f0-f9b6-47c2-a56c-5ed9106ed144" height=500>
+
+#### Review the order before submition. After submitting the order, the user can cancel the order and check out the order history
+<img src="https://github.com/valenvwi/QuickDrop-Amy/assets/119674688/d9a315d3-4754-4059-ae79-804622be577a" height=500>
+
+<img src="https://github.com/valenvwi/QuickDrop-Amy/assets/119674688/a0bff784-8b89-45e5-adb9-f313098aa8c6" height=500>
+
+<img src="https://github.com/valenvwi/QuickDrop-Amy/assets/119674688/1551d675-c8ca-4496-9957-56ea0aa8bd58" height=500>
+
+<img src="https://github.com/valenvwi/QuickDrop-Amy/assets/119674688/86952117-f37e-4e84-ad19-ca9a53d9027d" height=500>
+
+### Driver perspective
+
+#### Check out available orders around me and accept orders. After accepting the order, the order details will be shown. Driver can mark an order as completed
+<img src="https://github.com/valenvwi/QuickDrop-Amy/assets/119674688/fa4b6403-6f8e-4955-af08-0279793972d1" height=500>
+
+<img src="https://github.com/valenvwi/QuickDrop-Amy/assets/119674688/3397ea9e-38bb-4278-ad3d-ff8b78dbb556" height=500>
+
+<img src="https://github.com/valenvwi/QuickDrop-Amy/assets/119674688/07e65fa2-833c-4a23-aa8a-1f1f10ebaf85" height=500>
+
+#### Other pages: Order completed, check ongoing orders and all the orders that the driver accepted
+<img src="https://github.com/valenvwi/QuickDrop-Amy/assets/119674688/ea78d837-16ce-45e5-b82e-011c06881fab" height=500>
+
+<img src="https://github.com/valenvwi/QuickDrop-Amy/assets/119674688/55a36324-0c84-41ee-842a-ff0042205467" height=500>
+
+<img src="https://github.com/valenvwi/QuickDrop-Amy/assets/119674688/f27f8966-cf25-4cdc-860a-9c6b783d375b" height=500>
