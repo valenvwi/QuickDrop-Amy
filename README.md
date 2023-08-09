@@ -39,10 +39,12 @@
 
 <img src="https://github.com/valenvwi/QuickDrop-Amy/assets/119674688/88c857f0-f9b6-47c2-a56c-5ed9106ed144" height=500>
 
-#### Review the order before submition. After submitting the order, the user can cancel the order and check out the order history
+#### Review the order before submition
 <img src="https://github.com/valenvwi/QuickDrop-Amy/assets/119674688/d9a315d3-4754-4059-ae79-804622be577a" height=500>
 
 <img src="https://github.com/valenvwi/QuickDrop-Amy/assets/119674688/a0bff784-8b89-45e5-adb9-f313098aa8c6" height=500>
+
+#### After submitting the order, the user can cancel the order and check out the order history
 
 <img src="https://github.com/valenvwi/QuickDrop-Amy/assets/119674688/1551d675-c8ca-4496-9957-56ea0aa8bd58" height=500>
 
